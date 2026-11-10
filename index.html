@@ -33,8 +33,9 @@ h2{font-size:1.2em;margin:0 0 .5em}
 .q:last-of-type{border-bottom:0}
 .q.miss{outline:2px solid #d9822b;outline-offset:4px;border-radius:8px}
 .q p{margin:0 0 8px}
-.opts{display:flex;flex-wrap:wrap;gap:6px}
-.opts label{flex:1 1 auto;min-width:72px;text-align:center;border:1px solid var(--line);border-radius:999px;padding:6px 8px;cursor:pointer;font-size:.9em}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media (min-width:560px){.opts{grid-template-columns:repeat(4,1fr)}}
+.opts label{display:flex;align-items:center;justify-content:center;min-height:48px;text-align:center;border:1px solid var(--line);border-radius:999px;padding:6px 8px;cursor:pointer;font-size:.95em}
 .opts input{position:absolute;opacity:0;pointer-events:none}
 .opts label:has(input:checked){background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
 .opts label:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
@@ -98,7 +99,7 @@ a.btn.alt{background:transparent;color:var(--accent)}
 
 <div class="more">
 <div><strong>✍️ 分享你的照顧故事</strong><p class="note">把心裡的話寫下來，也是一種抒發。想寫得更完整，歡迎投稿。</p><a class="btn" href="https://forms.gle/6J2iRgoSbZYD2WuD9" target="_blank" rel="noopener">前往投稿故事 →</a></div>
-<div><strong>👥 追蹤我們的 FB 粉專</strong><p class="note">定期分享照顧者能用的實用小技巧，也能看到其他照顧者的故事。</p><a class="btn alt" id="fb" href="https://www.facebook.com/profile.php?id=61579721721090" target="_blank" rel="noopener">前往 FB 粉專 →</a></div>
+<div><strong>👥 追蹤我們的 FB 粉專</strong><p class="note">定期分享照顧者能用的實用小技巧，也能看到其他照顧者的故事。</p><a class="btn" id="fb" href="https://www.facebook.com/profile.php?id=61579721721090" target="_blank" rel="noopener">前往拾光同行 FB 粉專 →</a></div>
 <div><strong>🖼️ 送給自己與其他照顧者的鼓勵圖卡</strong><p class="note">圖卡不含任何分數，可以安心轉貼，讓更多人知道也能幫自己檢查。</p>
 <img id="card" alt="鼓勵圖卡：我完成了今天的自我檢查">
 <button type="button" id="dl" hidden>儲存圖卡</button><span class="note" id="dlnote"> 長按（或按右鍵）圖片即可儲存。</span></div>
@@ -178,7 +179,6 @@ $("submit").onclick=()=>{
  curLevel=l[4];upd();
  $("sc").textContent=sum;$("lv").textContent=l[1];$("adv").textContent=l[2];$("help").hidden=!l[3];
  $("nx").innerHTML=l[5].map(t=>"<li>"+t+"</li>").join("");
- $("fb").className=i===0?"btn":"btn alt";
  $("prog").hidden=true;drawCard();
  $("result").hidden=false;
  requestAnimationFrame(()=>{$("fill").style.width=(sum/42*100)+"%"});
