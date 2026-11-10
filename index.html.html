@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>家庭照顧者壓力自我測驗</title>
+<meta name="description" content="3 分鐘了解你的照顧壓力。為失智症家庭照顧者設計的自我檢測，並有溫暖的照顧者社群。">
+<meta property="og:title" content="家庭照顧者壓力自我測驗">
+<meta property="og:description" content="3 分鐘了解你的照顧壓力，你不孤單。">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#fbf5ea;--card:#fffdf8;--text:#3a2e22;--muted:#7d6b58;--accent:#b4600f;--accent-t:#fff;--line:#ecdfca;--soft:#fbeed7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#201a14;--card:#2b231b;--text:#f3e9da;--muted:#c4b29a;--accent:#f0a64a;--accent-t:#2a1a05;--line:#4a3d2e;--soft:#3a2c1a}}
+:root[data-theme="dark"]{--bg:#201a14;--card:#2b231b;--text:#f3e9da;--muted:#c4b29a;--accent:#f0a64a;--accent-t:#2a1a05;--line:#4a3d2e;--soft:#3a2c1a}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.75;font-size:17px}
+html[data-size="2"] body{font-size:20px}
+html[data-size="3"] body{font-size:23px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+main{max-width:720px;margin:0 auto;padding:12px 16px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.fs{display:flex;gap:6px;align-items:center;font-size:.8em;color:var(--muted)}
+.fs button{padding:2px 10px;font-size:.95em;background:transparent;color:var(--accent)}
+.fs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-t)}
+h1{font-size:1.6em;margin:.4em 0 .2em}
+h2{font-size:1.2em;margin:0 0 .5em}
+.lead{color:var(--muted);margin:0 0 1em}
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);padding:8px 0 6px;font-size:.85em;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+.q{padding:14px 0;border-bottom:1px dashed var(--line)}
+.q:last-of-type{border-bottom:0}
+.q.miss{outline:2px solid #d9822b;outline-offset:4px;border-radius:8px}
+.q p{margin:0 0 8px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{flex:1 1 auto;min-width:72px;text-align:center;border:1px solid var(--line);border-radius:999px;padding:6px 8px;cursor:pointer;font-size:.9em}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label:has(input:checked){background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
+.opts label:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+button{font:inherit;cursor:pointer;border-radius:12px;border:1px solid var(--accent);padding:10px 20px;background:var(--accent);color:var(--accent-t)}
+button.ghost{background:transparent;color:var(--accent)}
+.bar{height:12px;border-radius:7px;background:var(--line);overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#f2bf5e,#d9822b);width:0;transition:width .5s}
+.score{font-size:2.4em;font-weight:700;color:var(--accent)}
+.note{font-size:.85em;color:var(--muted)}
+textarea{width:100%;min-height:90px;font:inherit;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);resize:vertical}
+.moods{display:flex;gap:8px;margin:8px 0 12px;flex-wrap:wrap}
+.moods button{padding:6px 12px;font-size:.95em}
+.moods button[aria-pressed="true"]{background:var(--accent);color:var(--accent-t)}
+.warn,.next{background:var(--soft);border-radius:12px;padding:12px 14px;margin-top:12px}
+.next ul{margin:.3em 0 0;padding-left:1.2em}
+.share{border:1px solid var(--accent);border-radius:14px;padding:16px;margin:16px 0}
+a.btn{display:inline-block;text-decoration:none;border-radius:12px;border:2px solid var(--accent);padding:9px 18px;margin:8px 8px 4px 0;background:var(--accent);color:var(--accent-t)}
+a.btn.alt{background:transparent;color:var(--accent)}
+.more{display:grid;gap:12px;margin:16px 0}
+.more>div{background:var(--soft);border-radius:14px;padding:14px 16px}
+.more strong{display:block;font-size:1.05em}
+.more p{margin:.2em 0 0}
+#card{max-width:260px;width:100%;border-radius:12px;display:block;margin:8px 0}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><span class="note">🌿 失智照顧者陪伴</span>
+<div class="fs" role="group" aria-label="調整字體大小">字體 <button type="button" data-s="1" aria-pressed="true">標準</button><button type="button" data-s="2" aria-pressed="false">大</button><button type="button" data-s="3" aria-pressed="false">特大</button></div></div>
+<h1>家庭照顧者壓力自我測驗</h1>
+<p class="lead">照顧失智家人很不容易。請依照你最近的真實感受作答，共 14 題，約需 3 分鐘。你的答案只會在這個畫面計算，不會被上傳。</p>
+
+<div class="prog" id="prog"><span id="pt">已完成 0 / 14 題</span><div class="bar"><i id="pf"></i></div></div>
+<form id="quiz" class="card" novalidate></form>
+<div style="text-align:center;margin-bottom:16px"><button id="submit" type="button">送出並查看分數</button></div>
+
+<section id="result" class="card" hidden aria-live="polite">
+<h2>你的結果</h2>
+<div><span class="score" id="sc">0</span> <span class="note">/ 42 分</span></div>
+<div class="bar"><i id="fill"></i></div>
+<h2 id="lv"></h2>
+<p id="adv"></p>
+<div id="help" class="warn" hidden>
+<strong>你不需要一個人撐著。</strong><br>
+・失智症關懷專線：0800-474-580（台灣失智症協會）<br>
+・長照服務專線：1966<br>
+・24 小時安心專線：1925（情緒困擾可撥打）
+</div>
+<div class="next"><strong>接下來可以這樣做</strong><ul id="nx"></ul></div>
+
+<div class="share">
+<strong>想把這次的狀態匿名分享給其他照顧者嗎？</strong>
+<p class="note" style="margin:.3em 0">按下按鈕後會開啟 Google 表單，並自動帶入你的分數級距。表單不會自動送出，你可以檢查、修改，不想分享就直接關閉。</p>
+<div class="moods" id="moods" role="group" aria-label="選擇目前的心情（選填）"></div>
+<textarea id="line" maxlength="200" placeholder="想對其他照顧者說的一句話（選填）"></textarea>
+<a class="btn" id="share" href="#" target="_blank" rel="noopener">💬 匿名分享給其他照顧者</a>
+<p class="note" style="margin:.4em 0 0">不需要姓名，也請勿寫出被照顧者的真實姓名。</p>
+</div>
+
+<div class="more">
+<div><strong>✍️ 分享你的照顧故事</strong><p class="note">把心裡的話寫下來，也是一種抒發。想寫得更完整，歡迎投稿。</p><a class="btn" href="https://forms.gle/6J2iRgoSbZYD2WuD9" target="_blank" rel="noopener">前往投稿故事 →</a></div>
+<div><strong>👥 追蹤我們的 FB 粉專</strong><p class="note">定期分享照顧者能用的實用小技巧，也能看到其他照顧者的故事。</p><a class="btn alt" id="fb" href="https://www.facebook.com/profile.php?id=61579721721090" target="_blank" rel="noopener">前往 FB 粉專 →</a></div>
+<div><strong>🖼️ 送給自己與其他照顧者的鼓勵圖卡</strong><p class="note">圖卡不含任何分數，可以安心轉貼，讓更多人知道也能幫自己檢查。</p>
+<img id="card" alt="鼓勵圖卡：我完成了今天的自我檢查">
+<button type="button" id="dl" hidden>儲存圖卡</button><span class="note" id="dlnote"> 長按（或按右鍵）圖片即可儲存。</span></div>
+</div>
+
+<p class="note">本測驗為自我覺察工具，不是醫療診斷。若你長期感到不適，建議諮詢醫師、心理師或社工。<br>題目與計分資料來源：中華民國家庭照顧者關懷總會。</p>
+<button class="ghost" id="redo" type="button">重新作答</button>
+</section>
+</main>
+
+<script>
+const QS=["我覺得自己總是忙於照顧。","我感到照顧責任讓我很疲累。","我因照顧而感到情緒壓力。","我覺得生活安排被照顧責任影響。","我因照顧而感到身體疲憊。","我覺得缺乏支持。","我因照顧而感到心理壓力。","我覺得社交生活受到影響。","我會擔心未來照顧壓力。","我覺得自己很孤單。","我沒有時間照顧自己。","我常感到沮喪。","我覺得經濟壓力增加。","整體而言照顧負擔很沉重。"];
+const OP=["從來沒有","很少如此","有時如此","常常如此"];
+const $=id=>document.getElementById(id);
+const quiz=$("quiz");
+QS.forEach((q,i)=>{
+ const d=document.createElement("div");d.className="q";d.id="q"+i;
+ d.innerHTML=`<p>${i+1}. ${q}</p><div class="opts">`+OP.map((o,v)=>`<label><input type="radio" name="q${i}" value="${v}">${o}</label>`).join("")+`</div>`;
+ quiz.appendChild(d);
+});
+const LV=[
+ [13,"調適得很好","您調適得很好，但是照顧的路是很漫長的，繼續保持下去，加油！",false,"0–13 分：調適得很好",["每週替自己留一小段不被打擾的時間，哪怕只有 30 分鐘。","追蹤粉專，收集實用的照顧小技巧，提前做好準備。","也可以把你的經驗分享給其他照顧者。"]],
+ [25,"開始出現壓力徵兆","您已經開始出現一些壓力的徵兆，建議您利用社會資源來減輕照顧壓力，主動打電話詢問有哪些服務可以解決您的困難。",false,"14–25 分：開始出現壓力徵兆",["撥打長照服務專線 1966，詢問居家服務、日間照顧、喘息服務等資源。","撥打失智症關懷專線 0800-474-580，聊聊你遇到的困難。","找一位家人或朋友，分擔一件固定的照顧工作。"]],
+ [42,"承受相當沉重的負擔","您目前承受著相當沉重的負擔，強烈建議您立即尋求家人、親友或社會資源的協助，以確保您及被照顧者都能有良好的生活品質。",true,"26–42 分：承受相當沉重的負擔",["今天先做一件事：請家人或朋友分擔一小時，讓自己好好休息。","主動聯絡上方的專線，詢問喘息與長照資源。","若情緒難以承受，請不要獨自撐著，找身邊的人或專業協助。"]]];
+
+/* 字體大小 */
+function setSize(s){document.documentElement.dataset.size=s;document.querySelectorAll(".fs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.s===String(s))));try{localStorage.setItem("cg-size",s)}catch(e){}}
+document.querySelectorAll(".fs button").forEach(b=>b.onclick=()=>setSize(b.dataset.s));
+try{const s=localStorage.getItem("cg-size");if(s)setSize(s)}catch(e){}
+
+/* 進度 */
+function prog(){const n=quiz.querySelectorAll("input:checked").length;$("pt").textContent="已完成 "+n+" / "+QS.length+" 題";$("pf").style.width=(n/QS.length*100)+"%"}
+quiz.addEventListener("change",prog);
+
+/* 預填表單 */
+const FORM="https://docs.google.com/forms/d/e/1FAIpQLSfKkCmcApO4dtG1PhATtO4hMgUknIn8Guxceh31bFKDigIcHA/viewform";
+const E={level:"entry.743644638",mood:"entry.240322235",line:"entry.2131160857"};
+let curLevel="",mood="";
+const MO=["還不錯","平靜","普通","擔心","難過","疲憊","生氣"];
+const ICON={"還不錯":"😊","平靜":"😌","普通":"😐","擔心":"😟","難過":"😢","疲憊":"😣","生氣":"😠"};
+MO.forEach(m=>{const b=document.createElement("button");b.type="button";b.className="ghost";b.textContent=ICON[m]+" "+m;b.setAttribute("aria-pressed","false");b.dataset.m=m;
+ b.onclick=()=>{mood=mood===m?"":m;[...$("moods").children].forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.m===mood)));upd()};$("moods").appendChild(b)});
+function upd(){
+ const p=[["usp","pp_url"]];
+ if(curLevel)p.push([E.level,curLevel]);
+ if(mood)p.push([E.mood,mood]);
+ const t=$("line").value.trim();if(t)p.push([E.line,t]);
+ $("share").href=FORM+"?"+p.map(([k,v])=>k+"="+encodeURIComponent(v)).join("&");
+}
+$("line").addEventListener("input",upd);
+
+/* 鼓勵圖卡（不含分數） */
+function drawCard(){
+ const c=document.createElement("canvas");c.width=c.height=1080;const x=c.getContext("2d");
+ const g=x.createLinearGradient(0,0,1080,1080);g.addColorStop(0,"#fbe3b0");g.addColorStop(1,"#f2a65a");x.fillStyle=g;x.fillRect(0,0,1080,1080);
+ x.fillStyle="rgba(255,255,255,.35)";x.beginPath();x.arc(900,180,260,0,7);x.fill();x.beginPath();x.arc(150,950,200,0,7);x.fill();
+ x.textAlign="center";x.fillStyle="#5a3510";
+ const f='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+ x.font="120px "+f;x.fillText("🌿",540,260);
+ x.font="bold 100px "+f;x.fillText("我完成了",540,450);x.fillText("今天的自我檢查",540,570);
+ x.font="48px "+f;x.fillText("照顧自己，也是照顧的一部分",540,720);
+ x.font="36px "+f;x.fillText("家庭照顧者壓力自我測驗",540,960);
+ c.toBlob(b=>{window._cardBlob=b},"image/png");
+ $("card").src=c.toDataURL("image/png");
+}
+(async()=>{try{const d=await claude.use("downloads");if(d){$("dl").hidden=false;$("dlnote").hidden=true;
+ $("dl").onclick=async()=>{try{await d.save({filename:"照顧者鼓勵圖卡.png",data:window._cardBlob})}catch(e){}}}}catch(e){}})();
+
+$("submit").onclick=()=>{
+ let sum=0,miss=null;
+ QS.forEach((_,i)=>{
+  const el=document.querySelector(`input[name=q${i}]:checked`),box=$("q"+i);
+  if(el){sum+=+el.value;box.classList.remove("miss")}else{box.classList.add("miss");miss=miss||box}
+ });
+ if(miss){miss.scrollIntoView({behavior:"smooth",block:"center"});alert("還有題目尚未作答，已為你標示。");return}
+ const i=LV.findIndex(x=>sum<=x[0]),l=LV[i];
+ curLevel=l[4];upd();
+ $("sc").textContent=sum;$("lv").textContent=l[1];$("adv").textContent=l[2];$("help").hidden=!l[3];
+ $("nx").innerHTML=l[5].map(t=>"<li>"+t+"</li>").join("");
+ $("fb").className=i===0?"btn":"btn alt";
+ $("prog").hidden=true;drawCard();
+ $("result").hidden=false;
+ requestAnimationFrame(()=>{$("fill").style.width=(sum/42*100)+"%"});
+ $("result").scrollIntoView({behavior:"smooth"});
+};
+$("redo").onclick=()=>{quiz.reset();prog();$("prog").hidden=false;$("result").hidden=true;$("fill").style.width="0";curLevel="";mood="";$("line").value="";[...$("moods").children].forEach(c=>c.setAttribute("aria-pressed","false"));window.scrollTo({top:0,behavior:"smooth"})};
+</script>
+</body>
+</html>
