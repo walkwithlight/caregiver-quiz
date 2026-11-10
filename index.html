@@ -29,8 +29,8 @@ h2{font-size:1.2em;margin:0 0 .5em}
 .lead{color:var(--muted);margin:0 0 1em}
 .prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);padding:8px 0 6px;font-size:.85em;color:var(--muted)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
-.q{padding:14px 0;border-bottom:1px dashed var(--line)}
-.q:last-of-type{border-bottom:0}
+.q{padding:14px 0 0}
+.q:not(:last-of-type)::after{content:"";display:block;height:14px;margin:16px auto 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 14'%3E%3Cg fill='none' stroke='%23c9972b' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M2 7h18M40 7h18'/%3E%3Cpath d='M22 7c3-6 9-6 16 0-7 6-13 6-16 0z'/%3E%3C/g%3E%3C/svg%3E") center/auto 14px no-repeat;opacity:.75}
 .q.miss{outline:2px solid #d9822b;outline-offset:4px;border-radius:8px}
 .q p{margin:0 0 8px}
 .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
@@ -59,23 +59,41 @@ a.btn.alt{background:transparent;color:var(--accent)}
 .more strong{display:block;font-size:1.05em}
 .more p{margin:.2em 0 0}
 #card{max-width:260px;width:100%;border-radius:12px;display:block;margin:8px 0}
+body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-repeat:no-repeat}
+.card{border-radius:20px;box-shadow:0 6px 22px rgba(180,120,40,.08)}
+.brand{text-align:center;margin:28px 0 8px;color:var(--muted)}
+.brand strong{display:block;color:var(--accent);font-size:1.2em}
+#result:not([hidden]){animation:fade .8s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#result:not([hidden]){animation:none}}
+:root{--gold:#c9972b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gold:#e3b45e}}
+:root[data-theme="dark"]{--gold:#e3b45e}
+.bot{color:var(--gold);vertical-align:middle;opacity:.9}
+#result{position:relative}
+.corner{position:absolute;top:12px;right:14px;pointer-events:none}
+.vine{display:block;margin:30px auto 0}
+.vine+.brand{margin-top:6px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="sprig" viewBox="0 0 120 40"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 30 C30 28 60 24 112 10"/><path d="M26 28 C22 18 28 12 36 10 C38 18 34 25 26 28Z"/><path d="M46 25 C44 33 50 37 58 36 C58 29 53 25 46 25Z"/><path d="M62 21 C60 11 67 6 75 6 C76 14 71 20 62 21Z"/><path d="M82 17 C82 26 88 29 96 28 C95 21 90 17 82 17Z"/><path d="M98 12 C98 5 104 2 111 3 C111 9 106 12 98 12Z"/></g></symbol><symbol id="vine" viewBox="0 0 200 28"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14 C30 4 50 24 80 14 S130 4 160 14 S188 18 196 12"/><path d="M40 17 C38 10 43 6 49 6 C49 12 46 16 40 17Z"/><path d="M96 11 C98 19 104 22 110 21 C109 14 103 11 96 11Z"/><path d="M140 11 C138 4 143 1 149 1 C149 7 146 10 140 11Z"/><path d="M172 15 C172 22 177 25 183 24 C182 18 177 15 172 15Z"/></g></symbol></defs></svg>
 <main>
-<div class="top"><span class="note">🌿 失智照顧者陪伴</span>
+<div class="top"><span class="note"><svg class="bot" width="64" height="21" aria-hidden="true"><use href="#sprig"/></svg> 失智照顧者陪伴</span>
 <div class="fs" role="group" aria-label="調整字體大小">字體 <button type="button" data-s="1" aria-pressed="true">標準</button><button type="button" data-s="2" aria-pressed="false">大</button><button type="button" data-s="3" aria-pressed="false">特大</button></div></div>
 <h1>家庭照顧者壓力自我測驗</h1>
-<p class="lead">照顧失智家人很不容易。請依照你最近的真實感受作答，共 14 題，約需 3 分鐘。你的答案只會在這個畫面計算，不會被上傳。</p>
+<p class="lead">辛苦了。先停下來，給自己 3 分鐘。這裡沒有對錯，只是看看最近的你過得怎麼樣。共 14 題，填答完畢後送出，就可以看到測驗結果。</p>
 
 <div class="prog" id="prog"><span id="pt">已完成 0 / 14 題</span><div class="bar"><i id="pf"></i></div></div>
 <form id="quiz" class="card" novalidate></form>
-<div style="text-align:center;margin-bottom:16px"><button id="submit" type="button">送出並查看分數</button></div>
+<div style="text-align:center;margin-bottom:16px"><button id="submit" type="button">送出，看看我的狀態</button></div>
 
 <section id="result" class="card" hidden aria-live="polite">
+<svg class="bot corner" width="84" height="28" aria-hidden="true"><use href="#sprig"/></svg>
 <h2>你的結果</h2>
+<p class="note">謝謝你願意停下來看看自己。</p>
 <div><span class="score" id="sc">0</span> <span class="note">/ 42 分</span></div>
 <div class="bar"><i id="fill"></i></div>
 <h2 id="lv"></h2>
@@ -108,6 +126,8 @@ a.btn.alt{background:transparent;color:var(--accent)}
 <p class="note">本測驗為自我覺察工具，不是醫療診斷。若你長期感到不適，建議諮詢醫師、心理師或社工。<br>題目與計分資料來源：中華民國家庭照顧者關懷總會。</p>
 <button class="ghost" id="redo" type="button">重新作答</button>
 </section>
+<svg class="bot vine" width="190" height="27" aria-hidden="true"><use href="#vine"/></svg>
+<div class="brand"><strong>拾光同行</strong>你不孤單，我們陪你一起走。</div>
 </main>
 
 <script>
@@ -156,12 +176,16 @@ function drawCard(){
  const c=document.createElement("canvas");c.width=c.height=1080;const x=c.getContext("2d");
  const g=x.createLinearGradient(0,0,1080,1080);g.addColorStop(0,"#fbe3b0");g.addColorStop(1,"#f2a65a");x.fillStyle=g;x.fillRect(0,0,1080,1080);
  x.fillStyle="rgba(255,255,255,.35)";x.beginPath();x.arc(900,180,260,0,7);x.fill();x.beginPath();x.arc(150,950,200,0,7);x.fill();
+ const SP=["M4 30 C30 28 60 24 112 10", "M26 28 C22 18 28 12 36 10 C38 18 34 25 26 28Z", "M46 25 C44 33 50 37 58 36 C58 29 53 25 46 25Z", "M62 21 C60 11 67 6 75 6 C76 14 71 20 62 21Z", "M82 17 C82 26 88 29 96 28 C95 21 90 17 82 17Z", "M98 12 C98 5 104 2 111 3 C111 9 106 12 98 12Z"];
+ x.save();x.strokeStyle="rgba(255,255,255,.85)";x.lineWidth=1.6;x.lineCap="round";
+ x.save();x.translate(60,60);x.scale(3,3);SP.forEach(d=>x.stroke(new Path2D(d)));x.restore();
+ x.save();x.translate(1020,900);x.rotate(Math.PI);x.scale(3,3);SP.forEach(d=>x.stroke(new Path2D(d)));x.restore();x.restore();
  x.textAlign="center";x.fillStyle="#5a3510";
  const f='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
  x.font="120px "+f;x.fillText("🌿",540,260);
  x.font="bold 100px "+f;x.fillText("我完成了",540,450);x.fillText("今天的自我檢查",540,570);
  x.font="48px "+f;x.fillText("照顧自己，也是照顧的一部分",540,720);
- x.font="36px "+f;x.fillText("家庭照顧者壓力自我測驗",540,960);
+ x.font="36px "+f;x.fillText("拾光同行｜家庭照顧者壓力自我測驗",540,960);
  c.toBlob(b=>{window._cardBlob=b},"image/png");
  $("card").src=c.toDataURL("image/png");
 }
