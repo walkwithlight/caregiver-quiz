@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>家庭照顧者壓力自我測驗</title>
-<meta name="description" content="3 分鐘了解你的照顧壓力。為失智症家庭照顧者設計的自我檢測，並有溫暖的照顧者社群。">
+<meta name="description" content="1–2 分鐘了解你的照顧壓力。為失智症家庭照顧者設計的自我檢測，並有溫暖的照顧者社群。">
 <meta property="og:title" content="家庭照顧者壓力自我測驗">
-<meta property="og:description" content="3 分鐘了解你的照顧壓力，你不孤單。">
+<meta property="og:description" content="1–2 分鐘了解你的照顧壓力，你不孤單。">
 <meta property="og:type" content="website">
 <style>
-:root{--bg:#fbf5ea;--card:#fffdf8;--text:#3a2e22;--muted:#7d6b58;--accent:#b4600f;--accent-t:#fff;--line:#ecdfca;--soft:#fbeed7;
+:root{--bg:#fdf9f1;--card:#fffefb;--text:#3a2e22;--muted:#7d6b58;--accent:#b4600f;--accent-t:#fff;--line:#f0e6d4;--soft:#fdf3e1;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#201a14;--card:#2b231b;--text:#f3e9da;--muted:#c4b29a;--accent:#f0a64a;--accent-t:#2a1a05;--line:#4a3d2e;--soft:#3a2c1a}}
 :root[data-theme="dark"]{--bg:#201a14;--card:#2b231b;--text:#f3e9da;--muted:#c4b29a;--accent:#f0a64a;--accent-t:#2a1a05;--line:#4a3d2e;--soft:#3a2c1a}
@@ -59,21 +59,46 @@ a.btn.alt{background:transparent;color:var(--accent)}
 .more strong{display:block;font-size:1.05em}
 .more p{margin:.2em 0 0}
 #card{max-width:260px;width:100%;border-radius:12px;display:block;margin:8px 0}
-body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-repeat:no-repeat}
+body{background:linear-gradient(var(--top),var(--bg) 380px) no-repeat,var(--bg)}
 .card{border-radius:20px;box-shadow:0 6px 22px rgba(180,120,40,.08)}
 .brand{text-align:center;margin:28px 0 8px;color:var(--muted)}
 .brand strong{display:block;color:var(--accent);font-size:1.2em}
 #result:not([hidden]){animation:fade .8s ease both}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){#result:not([hidden]){animation:none}}
-:root{--gold:#c9972b}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gold:#e3b45e}}
-:root[data-theme="dark"]{--gold:#e3b45e}
+:root{--gold:#c9972b;--top:#fffaf0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--gold:#e3b45e;--top:#2b2118}}
+:root[data-theme="dark"]{--gold:#e3b45e;--top:#2b2118}
 .bot{color:var(--gold);vertical-align:middle;opacity:.9}
 #result{position:relative}
 .corner{position:absolute;top:12px;right:14px;pointer-events:none}
 .vine{display:block;margin:30px auto 0}
 .vine+.brand{margin-top:6px}
+.chat{display:flex;flex-direction:column;gap:10px;padding:6px 0 14px}
+.row{display:flex;gap:8px;align-items:flex-end}
+.row.me{justify-content:flex-end}
+.av{flex:none;width:36px;height:36px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.b{max-width:78%;padding:10px 14px;border-radius:18px;line-height:1.6;word-break:break-word}
+.row.bot .b{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:6px}
+.row.me .b{background:var(--accent);color:var(--accent-t);border-bottom-right-radius:6px}
+.b.item{border:2px solid var(--accent);font-weight:600}
+.dots span{display:inline-block;width:7px;height:7px;margin:0 2px;border-radius:50%;background:var(--muted);animation:bl 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.msg{animation:fade .35s ease both}
+.who{display:flex;gap:10px;align-items:center;margin:6px 0 8px}
+.next a,.warn a{color:var(--accent)}
+.next li{margin:.5em 0}
+select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);max-width:100%}
+.b .hint{font-weight:400;font-size:.88em;color:var(--muted);margin-top:4px}
+blockquote{margin:0 0 .8em;padding:.2em 0 .2em 12px;border-left:3px solid var(--gold);font-weight:600}
+.reply{position:sticky;bottom:0;z-index:11;background:var(--bg);padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.reply .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.reply .grid button{min-height:48px;border-radius:999px;background:var(--card);color:var(--accent);border:2px solid var(--accent)}
+.reply .back{display:block;margin:4px auto 0;background:none;border:0;color:var(--muted);font-size:.85em;text-decoration:underline;padding:6px}
+@media (min-width:560px){.reply .grid{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.msg,.dots span{animation:none}}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23c9972b' stroke-width='1.2' vector-effect='non-scaling-stroke'%3E%3Ccircle cx='335' cy='120' r='62' opacity='.09'/%3E%3Ccircle cx='55' cy='340' r='36' opacity='.08'/%3E%3Ccircle cx='345' cy='570' r='92' opacity='.08'/%3E%3Ccircle cx='345' cy='570' r='70' opacity='.07'/%3E%3Ccircle cx='50' cy='730' r='52' opacity='.08'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
 </style>
@@ -84,11 +109,12 @@ body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-re
 <div class="top"><span class="note"><svg class="bot" width="64" height="21" aria-hidden="true"><use href="#sprig"/></svg> 失智照顧者陪伴</span>
 <div class="fs" role="group" aria-label="調整字體大小">字體 <button type="button" data-s="1" aria-pressed="true">標準</button><button type="button" data-s="2" aria-pressed="false">大</button><button type="button" data-s="3" aria-pressed="false">特大</button></div></div>
 <h1>家庭照顧者壓力自我測驗</h1>
-<p class="lead">辛苦了。先停下來，給自己 3 分鐘。這裡沒有對錯，只是看看最近的你過得怎麼樣。共 14 題，填答完畢後送出，就可以看到測驗結果。</p>
+<p class="lead">按照自己的感受，選擇最接近內心的選項就好。共 14 題，回答完就能看到你的測驗結果。</p>
 
-<div class="prog" id="prog"><span id="pt">已完成 0 / 14 題</span><div class="bar"><i id="pf"></i></div></div>
-<form id="quiz" class="card" novalidate></form>
-<div style="text-align:center;margin-bottom:16px"><button id="submit" type="button">送出，看看我的狀態</button></div>
+<div class="prog" id="prog"><span id="pt">準備好了就開始吧</span><div class="bar"><i id="pf"></i></div></div>
+<div class="who"><div class="av"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 19C5 10 11 5 20 4c0 9-5 15-15 15zM5 19c3-5 6-8 10-10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><strong>拾光同行</strong><div class="note">陪你聊聊最近的自己</div></div></div>
+<div class="chat" id="chat" aria-live="polite"></div>
+<div class="reply" id="reply" hidden></div>
 
 <section id="result" class="card" hidden aria-live="polite">
 <svg class="bot corner" width="84" height="28" aria-hidden="true"><use href="#sprig"/></svg>
@@ -97,14 +123,22 @@ body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-re
 <div><span class="score" id="sc">0</span> <span class="note">/ 42 分</span></div>
 <div class="bar"><i id="fill"></i></div>
 <h2 id="lv"></h2>
-<p id="adv"></p>
+<p id="lead"></p>
+<p class="note" style="margin:.6em 0 .2em">量表原文建議</p>
+<blockquote id="adv"></blockquote>
+<p id="cl"></p>
 <div id="help" class="warn" hidden>
 <strong>你不需要一個人撐著。</strong><br>
-・失智症關懷專線：0800-474-580（台灣失智症協會）<br>
-・長照服務專線：1966<br>
-・24 小時安心專線：1925（情緒困擾可撥打）
+・失智症關懷專線：<a href="tel:0800474580">0800-474-580</a>（台灣失智症協會）<br>
+・長照服務專線：<a href="tel:1966">1966</a><br>
+・24 小時安心專線：<a href="tel:1925">1925</a>（情緒困擾也可以撥打）<br>
+・生命線：<a href="tel:1995">1995</a>　張老師：<a href="tel:1980">1980</a><br>
+<span class="note">如果有傷害自己的念頭，請立刻撥打 1925 或 119。</span>
 </div>
 <div class="next"><strong>接下來可以這樣做</strong><ul id="nx"></ul></div>
+<div id="top3" class="next" hidden><strong>你最有感的幾題</strong><p class="note" style="margin:.2em 0">這是你選得比較重的題目，不是量表的分項分數，僅供參考。建議內容為本網站所加。</p><ul id="t3"></ul></div>
+<div class="next"><strong>找找離你近的資源</strong><p class="note" style="margin:.2em 0 .6em">不確定從哪裡開始，可以先撥 <a href="tel:1966">1966</a>，由縣市照顧管理中心提供諮詢與轉介。</p>
+<select id="cty" aria-label="選擇縣市"><option value="">選擇你的縣市</option><option>臺北市</option><option>新北市</option><option>桃園市</option><option>臺中市</option><option>臺南市</option><option>高雄市</option><option>基隆市</option><option>新竹市</option><option>新竹縣</option><option>苗栗縣</option><option>彰化縣</option><option>南投縣</option><option>雲林縣</option><option>嘉義市</option><option>嘉義縣</option><option>屏東縣</option><option>宜蘭縣</option><option>花蓮縣</option><option>臺東縣</option><option>澎湖縣</option><option>金門縣</option><option>連江縣</option></select><div id="cl2"></div></div>
 
 <div class="share">
 <strong>想把這次的狀態匿名分享給其他照顧者嗎？</strong>
@@ -123,7 +157,7 @@ body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-re
 <button type="button" id="dl" hidden>儲存圖卡</button><span class="note" id="dlnote"> 長按（或按右鍵）圖片即可儲存。</span></div>
 </div>
 
-<p class="note">本測驗為自我覺察工具，不是醫療診斷。若你長期感到不適，建議諮詢醫師、心理師或社工。<br>題目與計分資料來源：中華民國家庭照顧者關懷總會。</p>
+<p class="note">本測驗為自我覺察工具，不是醫療診斷。若你長期感到不適，建議諮詢醫師、心理師或社工。<br>題目、選項與計分資料來源：中華民國家庭照顧者關懷總會（題目與選項為原文，以粗體顯示；題目下方的補充說明及聊天中的其他語句為本網站所加）。</p>
 <button class="ghost" id="redo" type="button">重新作答</button>
 </section>
 <svg class="bot vine" width="190" height="27" aria-hidden="true"><use href="#vine"/></svg>
@@ -132,27 +166,20 @@ body{background:linear-gradient(#fff6e2,var(--bg) 380px) var(--bg);background-re
 
 <script>
 const QS=["我覺得自己總是忙於照顧。","我感到照顧責任讓我很疲累。","我因照顧而感到情緒壓力。","我覺得生活安排被照顧責任影響。","我因照顧而感到身體疲憊。","我覺得缺乏支持。","我因照顧而感到心理壓力。","我覺得社交生活受到影響。","我會擔心未來照顧壓力。","我覺得自己很孤單。","我沒有時間照顧自己。","我常感到沮喪。","我覺得經濟壓力增加。","整體而言照顧負擔很沉重。"];
+const HINT=["好像沒有時間做自己的事情。", "肩膀好像重重的，背負很多東西。", "我的心情因此低落，或是起伏很大。", "例如：如果我要外出做一些事情，會想到要照顧家人而作罷。", "像是：好像自己都睡不飽、精力不足。", "像是：感覺沒有人可以幫助我，我必須要獨自承擔這些責任。", "例如：擔心家人會因為我的不小心就受傷或出事。", "像是：有些時候想要和朋友聚會，但沒有時間。", "像是：擔憂自己有一天會撐不下去，也不知道未來該怎麼辦。", "例如：身邊的人好像不太能理解我的辛苦，有些心事也不知道能跟誰說。", "例如：有時候甚至會為了好好照顧家人，忽略自己身體不舒服。", "好像提不起勁，覺得很累、很無力。", "例如：想到醫療、照顧用品或請人幫忙的開銷，心裡就覺得有負擔。", "好像有很多事情壓在身上，讓我喘不過氣。"];
+const TIPS=["試著把照顧工作列出來，挑一兩件請家人、朋友或居家服務分擔。", "疲累是身體在提醒你。可以詢問喘息服務，讓自己有幾個小時完整休息。", "情緒需要出口。可以找一位信任的人說說，或參加照顧者支持團體。", "和家人約定一段固定的外出時間，哪怕一週一次，並事先安排好有人接手。", "身體不舒服時別硬撐，也替自己安排看診與休息的時間。", "先從一個人開始，把需要的幫忙具體說出來；也可以撥 1966 詢問有哪些服務與支持團體。", "這些擔心是因為你很在乎。可以和失智症關懷專線或照顧者支持團體聊聊。", "維持一個固定的小約定，例如每週一次和朋友通話或傳訊息。", "把擔心的事寫下來，一次只處理一件；也可以向 1966 了解之後可用的長照資源。", "你不是一個人，很多照顧者也有類似的感受。可以參加照顧者支持團體，或看看其他照顧者的故事。", "每天替自己留 10 分鐘不被打擾的時間，也別忘了自己的就醫與休息。", "連續好幾天提不起勁時，請告訴信任的人或專業人員，不要獨自承受。", "可以撥 1966 詢問長照相關補助，也可以向各縣市社會局或社福單位詢問。", "整體很沉重時，先不用想著解決全部，挑最想改變的一件事開始就好。"];
+const RX={1:"嗯，我收到了。",2:"謝謝你告訴我，慢慢來就好。",6:"好，我記下了。",10:"你做得很好。"};
 const OP=["從來沒有","很少如此","有時如此","常常如此"];
 const $=id=>document.getElementById(id);
-const quiz=$("quiz");
-QS.forEach((q,i)=>{
- const d=document.createElement("div");d.className="q";d.id="q"+i;
- d.innerHTML=`<p>${i+1}. ${q}</p><div class="opts">`+OP.map((o,v)=>`<label><input type="radio" name="q${i}" value="${v}">${o}</label>`).join("")+`</div>`;
- quiz.appendChild(d);
-});
 const LV=[
- [13,"調適得很好","您調適得很好，但是照顧的路是很漫長的，繼續保持下去，加油！",false,"0–13 分：調適得很好",["每週替自己留一小段不被打擾的時間，哪怕只有 30 分鐘。","追蹤粉專，收集實用的照顧小技巧，提前做好準備。","也可以把你的經驗分享給其他照顧者。"]],
- [25,"開始出現壓力徵兆","您已經開始出現一些壓力的徵兆，建議您利用社會資源來減輕照顧壓力，主動打電話詢問有哪些服務可以解決您的困難。",false,"14–25 分：開始出現壓力徵兆",["撥打長照服務專線 1966，詢問居家服務、日間照顧、喘息服務等資源。","撥打失智症關懷專線 0800-474-580，聊聊你遇到的困難。","找一位家人或朋友，分擔一件固定的照顧工作。"]],
- [42,"承受相當沉重的負擔","您目前承受著相當沉重的負擔，強烈建議您立即尋求家人、親友或社會資源的協助，以確保您及被照顧者都能有良好的生活品質。",true,"26–42 分：承受相當沉重的負擔",["今天先做一件事：請家人或朋友分擔一小時，讓自己好好休息。","主動聯絡上方的專線，詢問喘息與長照資源。","若情緒難以承受，請不要獨自撐著，找身邊的人或專業協助。"]]];
+ [13,"調適得很好","您調適得很好，但是照顧的路是很漫長的，繼續保持下去，加油！",false,"0–13 分：調適得很好",["每週替自己留一小段不被打擾的時間，哪怕只有 30 分鐘。","追蹤粉專，收集實用的照顧小技巧，提前做好準備。","也可以把你的經驗分享給其他照顧者。"],"你現在的狀態還不錯，這是你一路用心照顧自己的成果。","這條路很長，記得偶爾也停下來，替自己喘口氣。"],
+ [25,"開始出現壓力徵兆","您已經開始出現一些壓力的徵兆，建議您利用社會資源來減輕照顧壓力，主動打電話詢問有哪些服務可以解決您的困難。",false,"14–25 分：開始出現壓力徵兆",["撥打長照服務專線 1966，詢問居家服務、日間照顧、喘息服務等資源。","撥打失智症關懷專線 0800-474-580，聊聊你遇到的困難。","找一位家人或朋友，分擔一件固定的照顧工作。"],"你一直在撐著，身體和心情已經開始悄悄提醒你了。這不是因為你不夠好，而是你付出了很多。","你不需要等到撐不住才求助，現在問問看，也許會輕鬆一些。"],
+ [42,"承受相當沉重的負擔","您目前承受著相當沉重的負擔，強烈建議您立即尋求家人、親友或社會資源的協助，以確保您及被照顧者都能有良好的生活品質。",true,"26–42 分：承受相當沉重的負擔",["今天先做一件事：請家人或朋友分擔一小時，讓自己好好休息。","主動聯絡上方的專線，詢問喘息與長照資源。","若情緒難以承受，請不要獨自撐著，找身邊的人或專業協助。"],"謝謝你誠實地面對自己。你現在背負的真的很多，也許早就累了。","你不用一個人扛，願意開口求助，就是很重要的第一步。"]];
 
 /* 字體大小 */
 function setSize(s){document.documentElement.dataset.size=s;document.querySelectorAll(".fs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.s===String(s))));try{localStorage.setItem("cg-size",s)}catch(e){}}
 document.querySelectorAll(".fs button").forEach(b=>b.onclick=()=>setSize(b.dataset.s));
 try{const s=localStorage.getItem("cg-size");if(s)setSize(s)}catch(e){}
-
-/* 進度 */
-function prog(){const n=quiz.querySelectorAll("input:checked").length;$("pt").textContent="已完成 "+n+" / "+QS.length+" 題";$("pf").style.width=(n/QS.length*100)+"%"}
-quiz.addEventListener("change",prog);
 
 /* 預填表單 */
 const FORM="https://docs.google.com/forms/d/e/1FAIpQLSfKkCmcApO4dtG1PhATtO4hMgUknIn8Guxceh31bFKDigIcHA/viewform";
@@ -192,23 +219,56 @@ function drawCard(){
 (async()=>{try{const d=await claude.use("downloads");if(d){$("dl").hidden=false;$("dlnote").hidden=true;
  $("dl").onclick=async()=>{try{await d.save({filename:"照顧者鼓勵圖卡.png",data:window._cardBlob})}catch(e){}}}}catch(e){}})();
 
-$("submit").onclick=()=>{
- let sum=0,miss=null;
- QS.forEach((_,i)=>{
-  const el=document.querySelector(`input[name=q${i}]:checked`),box=$("q"+i);
-  if(el){sum+=+el.value;box.classList.remove("miss")}else{box.classList.add("miss");miss=miss||box}
- });
- if(miss){miss.scrollIntoView({behavior:"smooth",block:"center"});alert("還有題目尚未作答，已為你標示。");return}
- const i=LV.findIndex(x=>sum<=x[0]),l=LV[i];
- curLevel=l[4];upd();
- $("sc").textContent=sum;$("lv").textContent=l[1];$("adv").textContent=l[2];$("help").hidden=!l[3];
- $("nx").innerHTML=l[5].map(t=>"<li>"+t+"</li>").join("");
- $("prog").hidden=true;drawCard();
- $("result").hidden=false;
+
+/* 聊天流程 */
+const LEAD={0:"先從這一題開始，看看像不像最近的你：",4:"做得很好，已經過三分之一了。",8:"你願意為自己停下來回答這些，很不容易，謝謝你。",12:"只剩兩題囉。",13:"最後一題囉。"};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const chat=$("chat"),reply=$("reply");
+let ans=[],k=0;
+const LEAF='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 19C5 10 11 5 20 4c0 9-5 15-15 15zM5 19c3-5 6-8 10-10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function scrollEnd(el){(el||chat.lastElementChild)&&(el||chat.lastElementChild).scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})}
+function setProg(i){$("pt").textContent=i<0?"準備好了就開始吧":"第 "+(i+1)+" / "+QS.length+" 題";$("pf").style.width=(Math.max(i,0)/QS.length*100)+"%"}
+async function say(text,q,cls,hint){
+ const r=document.createElement("div");r.className="row msg bot";if(q!=null)r.dataset.q=q;
+ r.innerHTML='<div class="av">'+LEAF+'</div>';const b=document.createElement("div");b.className="b";
+ b.innerHTML='<span class="dots"><span></span><span></span><span></span></span>';r.appendChild(b);chat.appendChild(r);scrollEnd(r);
+ await sleep(RM?0:Math.min(1100,350+(text.length+(hint?hint.length:0))*18));b.textContent=text;if(hint){const h=document.createElement("div");h.className="hint";h.textContent=hint;b.appendChild(h)}if(cls)b.classList.add(cls);scrollEnd(r);return r}
+function me(text,q){const r=document.createElement("div");r.className="row msg me";r.dataset.q=q;const b=document.createElement("div");b.className="b";b.textContent=text;r.appendChild(b);chat.appendChild(r);scrollEnd(r)}
+function showReply(opts,fn,back){
+ reply.innerHTML="";const g=document.createElement("div");g.className="grid";if(opts.length===1)g.style.gridTemplateColumns="1fr";
+ opts.forEach((o,v)=>{const x=document.createElement("button");x.type="button";x.textContent=o;x.onclick=()=>{reply.hidden=true;fn(v)};g.appendChild(x)});
+ reply.appendChild(g);
+ if(back){const u=document.createElement("button");u.type="button";u.className="back";u.textContent="↩ 回上一題";u.onclick=undo;reply.appendChild(u)}
+ reply.hidden=false}
+async function ask(i){k=i;if(RX[i-1])await say(RX[i-1],i);if(i===12&&ans[11]>=2)await say("謝謝你願意誠實回答。如果最近心情很沉，結果頁會有可以聊一聊的專線。",i);if(LEAD[i])await say(LEAD[i],i);await say(QS[i],i,"item",HINT[i]);setProg(i);showReply(OP,onAns,i>0)}
+function onAns(v){ans[k]=v;me(OP[v],k);if(k+1<QS.length)ask(k+1);else done()}
+function undo(){
+ chat.querySelectorAll('[data-q="'+k+'"]').forEach(x=>x.remove());
+ k--;chat.querySelectorAll('.me[data-q="'+k+'"]').forEach(x=>x.remove());
+ ans.length=k;setProg(k);showReply(OP,onAns,k>0);scrollEnd()}
+async function done(){
+ const sum=ans.reduce((a,b)=>a+b,0);$("pf").style.width="100%";$("pt").textContent="完成 🌿";
+ await say("全部回答完了，謝謝你願意花時間，好好看看自己 🌿");await say("我來幫你算一算⋯⋯");await sleep(RM?0:700);
+ await say("不論結果如何，這都只是現在的你，不是對你的評價。你已經很努力了。結果在下面，也準備了一些或許幫得上忙的小東西。");finish(sum)}
+function finish(sum){
+ const i=LV.findIndex(x=>sum<=x[0]),l=LV[i];curLevel=l[4];upd();
+ $("sc").textContent=sum;$("lv").textContent=l[1];$("lead").textContent=l[6];$("adv").textContent=l[2];$("cl").textContent=l[7];$("help").hidden=!(l[3]||ans[11]>=2);
+ $("nx").innerHTML=l[5].map(x=>"<li>"+x+"</li>").join("");
+ const tp=ans.map((v,i)=>[v,i]).filter(x=>x[0]>=2).sort((a,b)=>b[0]-a[0]||a[1]-b[1]).slice(0,3);
+ $("top3").hidden=!tp.length;$("t3").innerHTML=tp.map(([v,i])=>"<li><strong>"+QS[i]+"</strong><br>"+TIPS[i]+"</li>").join("");
+ drawCard();$("result").hidden=false;
  requestAnimationFrame(()=>{$("fill").style.width=(sum/42*100)+"%"});
- $("result").scrollIntoView({behavior:"smooth"});
-};
-$("redo").onclick=()=>{quiz.reset();prog();$("prog").hidden=false;$("result").hidden=true;$("fill").style.width="0";curLevel="";mood="";$("line").value="";[...$("moods").children].forEach(c=>c.setAttribute("aria-pressed","false"));window.scrollTo({top:0,behavior:"smooth"})};
+ $("result").scrollIntoView({behavior:RM?"auto":"smooth"})}
+async function intro(){
+ setProg(-1);
+ await say("嗨，想先謝謝你願意點進來 🌿");await say("我是「拾光同行」。想邀請你花 1–2 分鐘，聊聊最近的自己。");
+ await say("接下來有 14 題，請你看看每一題像不像最近的你。題目與選項來自中華民國家庭照顧者關懷總會的量表，沒有對錯，照實回答就好。粗體是量表原文，下方的小字是幫你想像情境的補充。");
+ showReply(["好，開始吧"],()=>{me("好，開始吧",-1);ask(0)},false)}
+$("redo").onclick=()=>{chat.innerHTML="";ans=[];k=0;reply.hidden=true;$("result").hidden=true;$("fill").style.width="0";curLevel="";mood="";$("line").value="";$("cty").value="";$("cl2").innerHTML="";[...$("moods").children].forEach(c=>c.setAttribute("aria-pressed","false"));upd();window.scrollTo({top:0,behavior:"smooth"});intro()};
+$("cty").onchange=()=>{const c=$("cty").value;const q=s=>"https://www.google.com/search?q="+encodeURIComponent(c+" "+s);
+ $("cl2").innerHTML=c?'<p style="margin:.6em 0 .2em"><a href="'+q("失智共同照護中心")+'" target="_blank" rel="noopener">搜尋'+c+'的失智共同照護中心 →</a><br><a href="'+q("家庭照顧者 支持服務")+'" target="_blank" rel="noopener">搜尋'+c+'的家庭照顧者支持服務 →</a></p><p class="note">這是搜尋捷徑，不是官方名單。實際服務內容與時間，請以各縣市單位的公告，或 1966 的說明為準。</p>':""};
+intro();
 </script>
 </body>
 </html>
